@@ -82,6 +82,7 @@ router.patch("/user/me", auth, async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  res.sendFile(path.join(__dirname + "/../../view/index.html"));
+  res.sendFile(path.resolve("dist/index.html"));
 });
+
 module.exports = router;
