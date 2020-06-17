@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     email: {
       type: String,
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       validate(value) {
         if (!validator.isEmail(value)) throw new Error("Invalid email");
-      }
+      },
     },
     password: {
       type: String,
@@ -25,33 +25,34 @@ const userSchema = new mongoose.Schema(
       validate(value) {
         if (value.toLowerCase().includes("password"))
           throw new Error("Password need to be more strong");
-      }
+      },
     },
-    age: {
+    balance: {
       type: Number,
-      default: 0
+      default: 0,
+      validate(value) {
+        if (value < 0)
+          throw new Error("balance need to be greater or equal to 0");
+      },
     },
     tokens: [
       {
         token: {
           type: String,
-          required: true
-        }
-      }
+          required: true,
+        },
+      },
     ],
-    avatar: {
-      type: Buffer
-    }
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
-userSchema.virtual("tasks", {
-  ref: "Task",
-  localField: "_id",
-  foreignField: "owner"
-});
+// userSchema.virtual("tasks", {
+//   ref: "Task",
+//   localField: "_id",
+//   foreignField: "owner"
+// });
 
 userSchema.statics.findCretidentials = async (email, password) => {
   const user = await User.findOne({ email: email });
@@ -62,7 +63,7 @@ userSchema.statics.findCretidentials = async (email, password) => {
   return user;
 };
 
-userSchema.methods.generateAuthToken = async function() {
+userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_KEY);
   user.tokens = user.tokens.concat({ token });
@@ -70,7 +71,7 @@ userSchema.methods.generateAuthToken = async function() {
   return token;
 };
 
-userSchema.methods.toJSON = function() {
+userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
   delete userObject.password;
@@ -81,7 +82,7 @@ userSchema.methods.toJSON = function() {
 
 /////////// Hash password
 
-userSchema.pre("save", async function(next) {
+userSchema.pre("save", async function (next) {
   const user = this;
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
@@ -89,10 +90,10 @@ userSchema.pre("save", async function(next) {
   next();
 });
 
-userSchema.pre("remove", async function(next) {
+userSchema.pre("remove", async function (next) {
   const user = this;
   await user.populate("tasks").execPopulate();
-  user.tasks.forEach(task => task.remove());
+  user.tasks.forEach((task) => task.remove());
   next();
 });
 
