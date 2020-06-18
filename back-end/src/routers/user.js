@@ -2,8 +2,6 @@ const express = require("express");
 const router = new express.Router();
 const auth = require("../middleware/auth");
 const User = require("../models/user");
-const multer = require("multer");
-const sharp = require("sharp");
 const path = require("path");
 
 router.post("/user", async (req, res) => {
@@ -26,7 +24,7 @@ router.post("/user/login", async (req, res) => {
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (error) {
-    res.status(400).send(error.toString());
+    res.status(400).send(error);
   }
 });
 
@@ -79,10 +77,6 @@ router.patch("/user/me", auth, async (req, res) => {
   } catch (error) {
     res.status(400).send(error);
   }
-});
-
-router.get("/", async (req, res) => {
-  res.sendFile(path.resolve("dist/index.html"));
 });
 
 module.exports = router;
