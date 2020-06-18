@@ -16,6 +16,9 @@
     "fractional": "^1.0.0",
     "uniqid": "^4.1.1"
   },
+  "browser": {
+    "child_process": false
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
