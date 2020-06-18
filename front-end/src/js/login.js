@@ -41,6 +41,8 @@ const controlRegister = async () => {
   element.loginWrapper.insertAdjacentHTML("afterbegin", nameMarkup);
 };
 
+//TODO: Add toggle event between login and register
+
 const setupEventListener = () => {
   element.loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
