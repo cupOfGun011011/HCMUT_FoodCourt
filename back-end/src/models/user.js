@@ -48,11 +48,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-// userSchema.virtual("tasks", {
-//   ref: "Task",
-//   localField: "_id",
-//   foreignField: "owner"
-// });
 
 userSchema.statics.findCretidentials = async (email, password) => {
   const user = await User.findOne({ email: email });
