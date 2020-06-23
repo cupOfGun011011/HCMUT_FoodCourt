@@ -7,7 +7,7 @@
     "test": "jest --watch --runInBand",
     "start": "node -r dotenv/config ./src/index.js dotenv_config_path=./config/dev.env",
     "dev": "nodemon -r dotenv/config ./src/index.js dotenv_config_path=./config/dev.env",
-    "db": "C:/Users/ASUS/mongodb/bin/mongod.exe --dbpath=C:/Users/ASUS/mongodb-data",
+    "db": "C:/Users/DELL/mongodb/bin/mongod.exe --dbpath=C:/Users/DELL/mongodb-data",
     "playground": "nodemon playground/index.js"
   },
   "browser": {
