@@ -8,8 +8,9 @@ router.get("/login", async (req, res) => {
 router.get("/", async (req, res) => {
   res.sendFile(path.resolve("dist/index.html"));
 });
-router.get("/home-page", async (req, res) => {
-  res.sendFile(path.resolve("dist/index.html"));
+
+router.get("/order", async (req, res) => {
+  res.sendFile(path.resolve("dist/order.html"));
 });
 
 module.exports = router;

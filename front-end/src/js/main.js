@@ -220,5 +220,18 @@
         }
         $button.parent().find('input').val(newVal);
     });
+    /*-------------------
+		hidden wallet item
+	--------------------- */
+/*  $('#btn_wallet').click(function(event){
+      $('#wallet').removeClass('hidden-wallet-item');
+      $('#wallet_history').addClass('hidden-wallet-item');
+      $('#btn_wallet').animate({background-color: #f4f4f4});
+  });
+  $('#btn_wallet_history').click(function(event){
+      $('#wallet_history').removeClass('hidden-wallet-item');
+      $('#wallet').addClass('hidden-wallet-item');
+      $('#btn_wallet').animate({background-color: #f4f4f4});
+  });*/
 
 })(jQuery);
