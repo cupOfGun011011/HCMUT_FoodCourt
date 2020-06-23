@@ -39,7 +39,7 @@ const controlRegister = async () => {
     const userInfo = await axios.post(`${serverAPI}/user`, crediential);
     user.setUser(userInfo.data.user, userInfo.data.token);
     user.saveStorage();
-    window.location.href = `${serverAPI}/home-page`;
+    window.location.href = `${serverAPI}`;
   } catch (error) {
     element.serverMessage.textContent =
       "Email has already existed or password is too weak";
