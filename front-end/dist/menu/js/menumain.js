@@ -86,7 +86,7 @@
       document
         .querySelector(".featured__filter")
         .insertAdjacentHTML("beforeend", menuMarkup); 
-        console.log("Menu loaded");
+        console.log("Menu loaded"); 
     };
     
     // const setupEventListener = async () => {
