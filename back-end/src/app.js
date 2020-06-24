@@ -6,6 +6,7 @@ const cors = require("cors");
 require("./db/mongoose");
 const userRouter = require("../src/routers/user");
 const mainRouter = require("../src/routers/main");
+const path = require("path");
 
 app.use(express.json());
 app.use(express.static("dist"));
