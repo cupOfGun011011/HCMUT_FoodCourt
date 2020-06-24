@@ -1,6 +1,6 @@
 # Change logs
 
-## Menu item loaded by [renderMenu()](front-end/dist/menu/js/menumain.js) now can be filtered out with Featured Product filter
+## Menu item loaded by [renderMenu()](https://github.com/cupOfGun011011/HCMUT_FoodCourt/blame/loaded_menu_and_filter/front-end/dist/menu/js/menumain.js#L13-L99) now can be filtered out with Featured Product filter
 
 Open [index.html](front-end/dist/menu/index.html) in ```${workingDir}/front-end/dist/menu```
 
