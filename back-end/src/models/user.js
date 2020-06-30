@@ -48,6 +48,11 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+userSchema.virtual("orders", {
+  ref: "Order",
+  localField: "_id",
+  foreignField: "owner",
+});
 
 userSchema.statics.findCretidentials = async (email, password) => {
   const user = await User.findOne({ email: email });
@@ -64,6 +69,15 @@ userSchema.methods.generateAuthToken = async function () {
   user.tokens = user.tokens.concat({ token });
   await user.save();
   return token;
+};
+
+userSchema.methods.generateUserOrders = async function () {
+  const user = this;
+  await user
+    .populate({
+      path: "orders",
+    })
+    .execPopulate();
 };
 
 userSchema.methods.toJSON = function () {
