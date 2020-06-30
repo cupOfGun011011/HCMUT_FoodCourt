@@ -79,4 +79,26 @@ router.patch("/user/me", auth, async (req, res) => {
   }
 });
 
+router.patch("/recharge", auth, async (req, res) => {
+  const newUser = req.body;
+  const updates = Object.keys(newUser);
+  const allowedUpdates = ["balance"];
+  const isValidUpdates = updates.every((el) => {
+    return allowedUpdates.includes(el);
+  });
+  if (!isValidUpdates)
+    return res.status(400).send({ error: "Invalid updates" });
+  try {
+    const user = req.user;
+    updates.forEach((key) => {
+      user[key] = newUser[key];
+    });
+
+    await user.save();
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 module.exports = router;
