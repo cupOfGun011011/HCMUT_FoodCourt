@@ -1,0 +1,224 @@
+.set-bg {
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center center;
+}
+
+.wrapper {
+	padding-bottom: 75px;
+	border-bottom: 1px solid #e1e1e1;
+	background-color: #f4f4f4;
+}
+
+.title {
+	border-radius: .25rem;
+	background-color: #e9ecef;
+	padding: .5rem;
+}
+/*---------------------
+   Sidebar
+-----------------------*/
+
+.sidebar {
+	padding: .2rem 1rem;
+	background-color: #e9ecef;
+	border-radius: .3rem;
+}
+
+.sidebar__item {
+	margin-bottom: 50px;
+}
+
+.sidebar__item ul li {
+	list-style: none;
+}
+
+.sidebar__item ul li div:hover {
+	background-color: white;
+	color: #7fad39;
+}
+
+.sidebar__item ul li a {
+	font-size: 16px;
+	color: #666666;
+	line-height: 48px;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	-ms-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
+
+.sidebar__item ul li a:hover {
+	color: #7fad39;
+}
+
+/*profile*/
+.profiles {
+  margin-bottom: 0 !important ;
+}
+.profiles_right {
+  padding-left: 1px;
+  text-align: center;
+}
+
+.profiles_right ul li:hover{
+  background-color: while;
+  color: #7fad39;
+}
+
+.profiles_right ul li p {
+  margin-bottom: 0;
+  margin-top: .9rem;
+	line-height: 2rem !important;
+}
+
+.profiles_right ul li a {
+  font-size: 14px;
+	line-height: 2rem !important;
+}
+
+
+.avatar {
+  float: right;
+  border-radius: 50%;
+  border: .05rem solid black;
+  width: 90px;
+  height: 90px;
+}
+
+@media (max-width: 991px){
+  .avatar{
+    width: 50px;
+    height: 50px;
+  }
+	.profiles_right ul li a {
+	  font-size: 12px;
+		line-height: 1rem !important;
+	}
+	.profiles_right ul li p {
+		font-size: 14px;
+		line-height: 1rem !important;
+	}
+}
+
+
+.set-avt{
+  background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+/*menu*/
+.menu_list {
+
+}
+
+.menu_list li {
+	padding-left: .7rem;
+	border-radius: .25rem;
+	height: 2rem;
+
+}
+.menu_list li a{
+	line-height: 2rem !important;
+}
+
+.hidden-menu-item {
+	display: none;
+  visibility: hidden;
+}
+
+.menu-item-action {
+	background-color: white;
+	color: #7fad39;
+	padding-left: .1rem;
+	border-left: 3px solid #ee2c74;
+}
+
+/*---------------------
+   main
+-----------------------*/
+.main {
+	padding: .2rem 1rem;
+}
+
+.main_item {
+	padding-bottom: .5rem;
+	border-radius: .3rem;
+	background-color: white;
+}
+
+/*wallet*/
+
+.wallet_history {
+	padding-top: .25rem;
+}
+
+.wallet_history th{
+	padding-top: .3rem;
+	padding-bottom: .3rem;
+}
+
+.wallet_history td{
+	padding-top: .3rem;
+	padding-bottom: .3rem;
+}
+
+/*---------------------
+   profile Page
+-----------------------*/
+.user_info{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: white;
+	border-radius: .3rem;
+}
+.user_title {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 1rem;
+}
+.user_title h2 {
+	padding-left: 1rem;
+	border-left: 3px solid #ee2c74;
+}
+.edit-btn {
+	height: 1.75rem;
+	float: right;
+	cursor: pointer;
+}
+.avt-info {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-radius: .3rem;
+}
+.avt-info .user_title h2 {
+	padding-left: 0px;
+	border-left: 0px;
+}
+.avt-info .avatar {
+	background-color: white;
+	border-radius: .1rem;
+	width: 180px;
+  height: 180px;
+}
+input[type="file"]{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    cursor: pointer;
+}
+.change-avt-btn {
+	padding-top: 1rem;
+	cursor: pointer;
+}
+.change-avt-btn p {
+	color: white;
+	cursor: pointer;
+}
+.change-avt-btn .col-3 {
+	height: 2rem;
+}

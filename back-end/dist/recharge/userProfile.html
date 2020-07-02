@@ -185,187 +185,80 @@
     <!-- phần body Begin -->
     <section class="wrapper spad">
       <div class="container">
-        <div class="row">
-          <!-- sidebar begin-->
-          <div class="col-lg-4 col-md-5 order-md-1 order-1">
-            <div class="sidebar">
-                <!--profile-->
-              <div class="row sidebar__item profiles justify-content-center">
-                    <div class="col-2" style="padding-right: 0" >
-                      <div class="avatar set-avt" data-set-avt="img/wallet/avatar.svg"></div>
-                    </div>
-                    <div class="col-4 col-sm-3 col-md-6 profiles_right">
-                      <ul>
-                        <li><p>Nguyễn Văn A</p></li>
-                        <li><a href="#">thông tin tài khoản</a></li>
-                      </ul>
-                    </div>
+        <form class="" action="index.html" method="post">
+          <div class="row">
+            <div class="col-lg-8 col-md-6 user_info order-md-1 order-2">
+              <div class="col user_title">
+                <h2 class="d-inline-flex">Thông tin tài khoản</h2>
+                <span class="btn-primary btn-sm edit-btn">
+                  <i class="fa fa-pencil ">&nbsp Chỉnh sửa</i>
+                </span>
               </div>
-              <hr class="my-2">
-                <!--menu-->
-              <div class="sidebar__item">
-                <ul class="list-group menu_list">
-                  <li id="btn_notice"> <a>thông báo của tôi</a> </li>
-                  <li id="btn_wallet" class="menu-item-action"><a>ví của bạn</a></li>
-                  <li id="btn_history"><a>lịch sử order</a></li>
-                </ul>
+              <div class="form-group">
+                <label>Họ và tên :</label>
+                <input type="text" value="Nguyễn Văn A" class="form-control" disabled="disabled" id="user_name">
+              </div>
+              <div class="form-group">
+                <label>Email:</label>
+                <input type="email" value="test@gmail.com" class="form-control" disabled="disabled" id="user_mail">
+              </div>
+              <div class="row">
+                <div class="col text-center">
+                  <a class="btn btn-primary text-center" data-toggle="modal" data-target="#change_pass" style="color: white;">Đổi mật khẩu</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 avt-info order-md-1 order-1">
+              <div class="col user_title">
+                <h2 class="text-center">avatar</h2>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-6" style="padding: 0px;">
+                  <div class="avatar set-avt" data-set-avt="img/wallet/avatar.svg"></div>
+                </div>
+              </div>
+              <div class="row justify-content-center change-avt-btn">
+                <div class="col-3 btn-sm btn-primary">
+                  <span>
+                    <p class="text-center">Đổi avatar</p>
+                    <input type="file"/>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-          <!-- sidebar end-->
-
-          <!-- main page begin-->
-          <div class="col-lg-8 col-md-7 order-md-1 order-2 main">
-            <!--notice-->
-            <div id="notice" class="hidden-menu-item">
-              <h5 class="title text-center">thông báo của bạn</h5>
-              <div class="main_item">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">thông báo từ</th>
-                      <th scope="col">nội dung</th>
-                      <th scope="col">ngày gửi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"> Đầu bếp: </th>
-                      <td>món ăn của bạn đã sẵn sàng hãy đến lấy nhé :)))</td>
-                      <td>12/3/2019</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"> Đầu bếp: </th>
-                      <td>rất tiếc món abcxyz đã hết vui lòng chọn món khác :(((</td>
-                      <td>11/3/2019</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"> Admin: </th>
-                      <td>1 server sẽ tắt trong vòng 1 tiếng nữa :)))</td>
-                      <td>10/3/2019</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!--wallet-->
-            <div id="wallet">
-                <h5 class="title text-center">ví của bạn</h5>
-              <div class="main_item">
-                <div class="row justify-content-center">
-                  <div class="col-3">
-                    <img src="img\wallet\wallet-icon.svg" class="rounded mx-auto d-block"/>
-                  </div>
-                </div>
-                <p class="lead text-center">số dư trong ví của bạn là: 1.634.652 VNĐ</p>
-                <hr class="my-2" />
-                <div class="row">
-                  <div class="col text-center">
-                    <a class="btn btn-primary text-center" href="#" >Nạp thêm</a>
-                  </div>
-                </div>
-              </div>
-              <h5 class="title text-center">lịch sử</h5>
-              <div class="main_item wallet_history">
-                <table class="table">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">thời gian</th>
-                      <th scope="col">số tiền</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>11/03/2019</td>
-                      <td>+746.723 vnđ</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>12/01/2020</td>
-                      <td>-120.000 vnđ</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>10/12/2019</td>
-                      <td>-60.000 vnđ</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="row justify-content-center">
-                  <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                      <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true" aria-disabled="true"
-                            >&laquo;</span
-                          >
-                        </a>
-                      </li>
-                      <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-
-            <!--order history-->
-            <div class="hidden-menu-item" id="history">
-              <h5 class="title text-center">lịch sử order</h5>
-              <div class="main_item">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">mã đơn hàng</th>
-                      <th scope="col">ngày mua</th>
-                      <th scope="col">tổng tiền</th>
-                      <th scope="col">trạng thái đơn hàng</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row"> <a href="#">87655</a> </th>
-                      <td>12/3/2019</td>
-                      <td>70.000 vnđ</td>
-                      <td>thành công</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">87655</a></th>
-                      <td>11/3/2019</td>
-                      <td>60.000 vnđ</td>
-                      <td>đã hủy</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><a href="#">87655</a></th>
-                      <td>10/3/2019</td>
-                      <td>40.000 vnđ</td>
-                      <td>thành công</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          <!--main page end-->
-          </div>
-        </div>
+        </form>
       </div>
     </section>
     <!-- phần body End -->
+
+    <!-- Modal đổi pass begin-->
+    <div class="modal fade" id="change_pass" data-backdrop="static">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Xin chào Nguyễn Văn A</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Mật khẩu cũ:</label>
+              <input type="password" class="form-control" id="user_name">
+            </div>
+            <div class="form-group">
+              <label>Mật khẩu mới:</label>
+              <input type="password" class="form-control" id="user_name">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal đổi pass end-->
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
