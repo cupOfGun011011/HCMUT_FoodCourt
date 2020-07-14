@@ -2,9 +2,9 @@ const express = require("express");
 const router = new express.Router();
 const Order = require("../models/order");
 const Product = require("../models/product");
-const auth = require("../middleware/auth");
+const authenticate = require("../middleware/authenticate");
 
-router.post("/order", auth, async (req, res) => {
+router.post("/order", authenticate, async (req, res) => {
   try {
     const orderInfo = await Product.findOne({ productID: req.body.productID });
 
@@ -25,7 +25,7 @@ router.post("/order", auth, async (req, res) => {
   }
 });
 
-router.get("/orders", auth, async (req, res) => {
+router.get("/orders", authenticate, async (req, res) => {
   try {
     const user = req.user;
     await user.generateUserOrders();
@@ -37,7 +37,7 @@ router.get("/orders", auth, async (req, res) => {
   }
 });
 
-router.get("/orders/:id", auth, async (req, res) => {
+router.get("/orders/:id", authenticate, async (req, res) => {
   try {
     const _id = req.params.id;
 

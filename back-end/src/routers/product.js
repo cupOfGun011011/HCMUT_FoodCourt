@@ -1,20 +1,29 @@
 const express = require("express");
 const router = new express.Router();
 const Product = require("../models/product");
-const auth = require("../middleware/auth");
+const authenticate = require("../middleware/authenticate");
+const authorize = require("../middleware/authorize");
 
-router.post("/product", auth, async (req, res) => {
-  try {
-    const product = new Product({
-      ...req.body,
-    });
-    await product.save();
-    res.status(201).send(product);
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error);
+router.post(
+  "/product",
+  authenticate,
+  (req, res, next) => {
+    authorize(req, res, next, "manager");
+  },
+  async (req, res) => {
+    console.log("objectasd");
+    try {
+      const product = new Product({
+        ...req.body,
+      });
+      await product.save();
+      res.status(201).send(product);
+    } catch (error) {
+      console.log(error);
+      res.status(400).send(error);
+    }
   }
-});
+);
 
 router.get("/products", async (req, res) => {
   try {

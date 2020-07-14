@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const auth = require("../middleware/auth");
+const authenticate = require("../middleware/authenticate");
 const User = require("../models/user");
 const path = require("path");
 
@@ -28,11 +28,11 @@ router.post("/user/login", async (req, res) => {
   }
 });
 
-router.get("/user/me", auth, async (req, res) => {
+router.get("/user/me", authenticate, async (req, res) => {
   res.send(req.user);
 });
 
-router.post("/user/logout", auth, async (req, res) => {
+router.post("/user/logout", authenticate, async (req, res) => {
   try {
     const user = req.user;
     user.tokens = user.tokens.filter((token) => token.token !== req.token);
@@ -44,7 +44,7 @@ router.post("/user/logout", auth, async (req, res) => {
   }
 });
 
-router.post("/user/logoutAll", auth, async (req, res) => {
+router.post("/user/logoutAll", authenticate, async (req, res) => {
   try {
     const user = req.user;
     user.tokens = [];
@@ -56,7 +56,7 @@ router.post("/user/logoutAll", auth, async (req, res) => {
   }
 });
 
-router.patch("/user/me", auth, async (req, res) => {
+router.patch("/user/me", authenticate, async (req, res) => {
   const newUser = req.body;
   const updates = Object.keys(newUser);
   const allowedUpdates = ["name", "password"];
@@ -79,7 +79,7 @@ router.patch("/user/me", auth, async (req, res) => {
   }
 });
 
-router.patch("/recharge", auth, async (req, res) => {
+router.patch("/recharge", authenticate, async (req, res) => {
   const newUser = req.body;
   const updates = Object.keys(newUser);
   const allowedUpdates = ["balance"];
