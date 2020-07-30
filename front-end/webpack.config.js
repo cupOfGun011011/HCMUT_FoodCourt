@@ -2,18 +2,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/login/index.js"],
+  entry: ["babel-polyfill", "./src/menu/index.js"],
   output: {
-    path: path.resolve("../back-end/dist/login"),
+    path: path.resolve("../back-end/dist/menu"),
     filename: "js/index.js",
   },
   devServer: {
-    contentBase: "../back-end/dist/login",
+    contentBase: "../back-end/dist/menu",
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/login/index.html",
+      template: "./src/menu/index.html",
     }),
   ],
   module: {
