@@ -6,16 +6,19 @@ const authenticate = require("../middleware/authenticate");
 
 router.post("/order", authenticate, async (req, res) => {
   try {
-    const orderInfo = await Product.findOne({ productID: req.body.productID });
+    const productInfo = await Product.findOne({
+      productID: req.body.productID,
+    });
 
-    if (!orderInfo) throw new Error("Product is unavailable");
+    if (!productInfo) throw new Error("Product is unavailable");
 
     const order = new Order({
-      name: orderInfo.name,
-      price: orderInfo.price,
+      name: productInfo.name,
+      price: productInfo.price,
       ammount: req.body.ammount,
-      productID: orderInfo.productID,
+      productID: productInfo.productID,
       owner: req.user._id,
+      image: productInfo.image,
     });
     await order.save();
     res.status(201).send(order);

@@ -38,6 +38,10 @@ const orderSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
+    image: {
+      type: Buffer,
+      require: true,
+    },
   },
   {
     timestamps: true,
